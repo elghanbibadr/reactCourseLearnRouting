@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route ,Redirect } from "react-router-dom";
 import Welcome from "./component/Welcome";
 import Products from "./component/Products";
 import MainHeader from "./component/MainHeader";
@@ -9,10 +9,13 @@ function App() {
     <div>
       <MainHeader />
       <main>
-      <Route path="/welcome" >
+        <Route path="/" exact>
+          <Redirect to="/welcome" />
+        </Route>
+       <Route path="/welcome" >
         <Welcome />
-      </Route>
-      <Route path="/products" >
+      </Route> 
+      <Route path="/products" exact >
         <Products/>
       </Route>
       <Route path="/products/:productId" >
